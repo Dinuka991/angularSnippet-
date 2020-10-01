@@ -55,7 +55,7 @@ export class CommonPopupDialogComponent implements OnInit {
 
 #### Here is the usage of our dialog box component 
 
-## parentComponent.ts
+## ParentComponent.ts
 ```
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef , MAT_DIALOG_DATA , MatDialog } from '@angular/material/dialog'

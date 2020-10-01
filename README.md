@@ -32,7 +32,7 @@ import { CommonPopupDialogComponent } from 'src/app/utils/common-popup-dialog/co
 export class PocModule { }
 ```
 Here is the implementation of CommonPopupDialogComponent
-
+## CommonPopupDialogComponent.ts
 ```
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -53,7 +53,9 @@ export class CommonPopupDialogComponent implements OnInit {
 }
 ```
 
-# Here is the usage of our dialog box component 
+#### Here is the usage of our dialog box component 
+
+## parentComponent.ts
 ```
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef , MAT_DIALOG_DATA , MatDialog } from '@angular/material/dialog'

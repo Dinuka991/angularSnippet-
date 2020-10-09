@@ -58,29 +58,42 @@ export class CommonPopupDialogComponent implements OnInit {
 ## ParentComponent.ts
 ```
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef , MAT_DIALOG_DATA , MatDialog } from '@angular/material/dialog'
-import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogConfig,  MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonPopupDialogComponent } from 'src/app/utils/common-popup-dialog/common-popup-dialog.component';
 
 
  constructor(
               @Inject(MAT_DIALOG_DATA) public data: any ,
-              private dialogRef: MatDialogRef<CommonPopupDialogComponent> ,
               public dialog: MatDialog ,
-              private route: ActivatedRoute , 
-              private router: Router)
+              )
   
   
   openSuccessDialog() :void{
-    const dialogRef  = this.dialog.open(CommonPopupDialogComponent , {
-      width: '40%',
-      data: 'otp'
-    });
+     const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.panelClass = 'custom-dialog-container';
+      dialogConfig.data = {
+      mobileNumber: this.profileForm.value.mobileNumber,
+      Id: this.Id
+};
+  dialogConfig.width =  '40%';
+  const dialogRef  = this.dialog.open(OtpMessageComponent , dialogConfig);
 
     dialogRef.afterClosed().subscribe(
         data => console.log("Dialog output:", data)
     );    
   }
 ```
+## style.scss
+```
+.custom-dialog-container .mat-dialog-container {
+    padding: 0px !important;
+    border-radius: 5px;
+    border-color: $base-color;
+    border-style: groove;
+}
+```
+
 
 [resource] (https://blog.angular-university.io/angular-material-dialog/)
